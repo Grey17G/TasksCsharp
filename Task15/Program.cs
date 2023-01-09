@@ -22,8 +22,3 @@ int Daynumber = int.Parse (Console.ReadLine ()!);
         Console.WriteLine("этот день не выходной");
     }
 
-
-
-
-
-
