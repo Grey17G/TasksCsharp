@@ -17,5 +17,3 @@ int FindSecondDigit(int number)
 
 int dig2 = FindSecondDigit(number);
 Console.WriteLine ($"Вторая цифра числа {number} равно {dig2}");
-
-
