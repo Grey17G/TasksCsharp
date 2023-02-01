@@ -6,21 +6,21 @@ m = 3, n = 4.
 (в примере показаны целые числа, но задача решается с дробными)
 */
 
-int GetDataFromUser (string message);
+int GetDataFromUser (string message)
 {
     Console.ForegroundColor = ConsoleColor.DarkGreen;
     Console.WriteLine (message);
-    Console.Resetcolor();
+    Console.ResetColor();
     int result = int.Parse (Console.ReadLine()!);
     return result;
 }
-void printColor (string data);
+void printInColor (string data)
 {
-    Console.ForegroundСolor = ConsoleColor.Magenta;
+    Console.ForegroundColor = ConsoleColor.Magenta;
     Console.Write (data);
     Console.ResetColor();
 }
-double [ , ] get2DDoubleArray (int colLenght, int rowLenght, int start, int end);
+double [,] get2DDoubleArray (int colLenght, int rowLenght, int start, int end)
 {
     double[,] array = new double [colLenght, rowLenght];
     for (int i =0; i< colLenght; i++)
@@ -28,24 +28,24 @@ double [ , ] get2DDoubleArray (int colLenght, int rowLenght, int start, int end)
         for (int j =0; j < rowLenght; j++)
         { 
             //array[i,j] = new Random(). Next (start *divider, (end+1)*divider)/ (divider + 0,0);
-            get2DDoubleArray[i,j] = new Random(). Next(start, end=+1) + Math.Round(new Random().NextDouble(),2);
+            array[i,j] = new Random(). Next(start, end+1) + Math.Round(new Random().NextDouble(),2);
         }
-}
-return array;
+    }
+    return array;
 }
 
 void print2DArray (double [,] array)
 {
-    Console.Write("\t");
-    for (int j=0; j<array.GetLenght(1); j++)
+    Console.Write(" \t");
+    for (int j=0; j < array.GetLength(1); j++)
     {
         printInColor (j + "\t");
     }
     Console.WriteLine();
-    for (int i=0;i<array.GetLenght(0);i++)
+    for (int i=0;i < array.GetLength(0);i++)
     {
         printInColor (i + "\t");
-        for (int j=0; j<array.GetLenght(1); j++)
+        for (int j=0; j < array.GetLength(1); j++)
         {
             Console.Write(array [i,j] + "\t");
         }
@@ -53,9 +53,6 @@ void print2DArray (double [,] array)
     }
 
 }
-
-
-
 int n = GetDataFromUser ("Введите количество строк");
 int m = GetDataFromUser ("Введите количество столбцов");
 double [,] array = get2DDoubleArray (n,m,0,100);
