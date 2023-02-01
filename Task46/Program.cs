@@ -3,6 +3,7 @@ m = 3, n = 4.
 1 4 8 19
 5 -2 33 -2
 77 3 8 1
+(в примере показаны целые числа, но задача решается с дробными)
 */
 
 int GetDataFromUser (string message);
@@ -13,14 +14,12 @@ int GetDataFromUser (string message);
     int result = int.Parse (Console.ReadLine()!);
     return result;
 }
-
 void printColor (string data);
 {
     Console.ForegroundСolor = ConsoleColor.Magenta;
     Console.Write (data);
     Console.ResetColor();
 }
-
 double [ , ] get2DDoubleArray (int colLenght, int rowLenght, int start, int end);
 {
     double[,] array = new double [colLenght, rowLenght];
@@ -33,7 +32,6 @@ double [ , ] get2DDoubleArray (int colLenght, int rowLenght, int start, int end)
         }
 }
 return array;
-
 }
 
 void print2DArray (double [,] array)
