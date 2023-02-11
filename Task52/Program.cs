@@ -20,9 +20,9 @@ int[,] get2DDoubleArray (int colLenght, int rowLenght, int start, int end)
      int [,] array = new int [colLenght,rowLenght];
      for (int i = 0; i< colLenght; i++)
      {
-        for (int j = 0; j< rowLenght; i++)
+        for (int j = 0; j< rowLenght; j++)
         {
-            array[i,j] = i =j;
+            array[i,j] = i+j;
         }
      }
      return array;
@@ -40,28 +40,31 @@ void print2DArray (int [,] array)
     }
 }
 
-int getAverageSum (int [,] array, int colLenght, int rowLenght)
+
+double [] getAverage (int [,] array)
 {                        
-    int sum = 0;
-    int a =0;
-    for (int i=0;i<colLenght;i++) 
+    double [] average = new double [array.GetLength(1)];
+    for (int i=0;i<array.GetLength(1);i++) 
     {
-        for (int j=0;j<rowLenght;j++) 
+        double sum =0;
+        
+        for (int j=0;j<array.GetLength(0);j++) 
         {
-            sum = sum + a;
-        }
-        double average = sum / rowLenght;
-        int n = i + 1;
-    }
-    return sum;
-}    
-    
+            sum = sum + array [i,j];
+        } 
+        average [i]= sum /array.GetLength(0); 
+        i++;
+    } 
+    return average;
+}   
 
 int n = GetDataFromUser ("Введите количество строк");
 int m = GetDataFromUser ("Введите количество столбцов");
 int [,] array = get2DDoubleArray (n,m,0,100);
 print2DArray (array);
-int AverageSumofNumbers = getAverageSum (array, n,m);
-Console.WriteLine ($"Среднее арифметическое элементов в каждом столбце массива равна {AverageSumofNumbers}");
+double [] AverageNumbers = getAverage (array);
+Console.WriteLine ($"Среднее арифметическое элементов  для каждого столбца равна {AverageNumbers}"); 
+
+
 
 
