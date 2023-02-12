@@ -41,30 +41,26 @@ void print2DArray (int [,] array)
 }
 
 
-double [] getAverage (int [,] array)
+void getAverage (int [,] array)
 {                        
     double [] average = new double [array.GetLength(1)];
-    for (int i=0;i<array.GetLength(1);i++) 
+    for (int i=0;i<array.GetLength(0);i++) 
     {
         double sum =0;
         
-        for (int j=0;j<array.GetLength(0);j++) 
+        for (int j=0;j<array.GetLength(1);j++) 
         {
-            sum = sum + array [i,j];
+            sum = sum + array [j,i];
         } 
-        average [i]= sum /array.GetLength(0); 
-        i++;
+        Console.WriteLine($"Average of column #{i + 1} is: {sum / array.GetLength(0)}"); ;
     } 
-    return average;
-}   
+    Console.ReadKey();
+}
 
 int n = GetDataFromUser ("Введите количество строк");
 int m = GetDataFromUser ("Введите количество столбцов");
 int [,] array = get2DDoubleArray (n,m,0,100);
 print2DArray (array);
-double [] AverageNumbers = getAverage (array);
-Console.WriteLine ($"Среднее арифметическое элементов  для каждого столбца равна {AverageNumbers}"); 
-
-
+getAverage (array);
 
 
