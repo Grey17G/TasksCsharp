@@ -52,7 +52,7 @@ void getAverage (int [,] array)
         {
             sum = sum + array [j,i];
         } 
-        Console.WriteLine($"Average of column #{i + 1} is: {sum / array.GetLength(0)}"); ;
+        Console.WriteLine($"Average is: {sum / array.GetLength(0)}"); ;
     } 
     Console.ReadKey();
 }
