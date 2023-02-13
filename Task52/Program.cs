@@ -50,11 +50,11 @@ void getAverage (int [,] array)
         
         for (int j=0;j<array.GetLength(1);j++) 
         {
-            sum = sum + array [j,i];
-        } 
-        Console.WriteLine($"Average is: {sum / array.GetLength(0)}"); ;
+            sum = sum + array [i,j];
+        }
+        Console.WriteLine($"Average or col {i} is : {sum / array.GetLength(0)}"); ;
     } 
-    Console.ReadKey();
+Console.ReadKey();
 }
 
 int n = GetDataFromUser ("Введите количество строк");
