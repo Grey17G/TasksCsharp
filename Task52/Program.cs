@@ -22,7 +22,7 @@ int[,] get2DDoubleArray (int colLenght, int rowLenght, int start, int end)
      {
         for (int j = 0; j< rowLenght; j++)
         {
-            array[i,j] = i+j;
+            array[i,j] = new Random(). Next(start, end+1);
         }
      }
      return array;
@@ -44,22 +44,22 @@ void print2DArray (int [,] array)
 void getAverage (int [,] array)
 {                        
     double [] average = new double [array.GetLength(1)];
-    for (int i=0;i<array.GetLength(0);i++) 
+    for (int i=0;i<array.GetLength(1);i++) 
     {
         double sum =0;
         
-        for (int j=0;j<array.GetLength(1);j++) 
+        for (int j=0;j<array.GetLength(0);j++) 
         {
-            sum = sum + array [i,j];
+            sum = sum + array [j,i];
         }
         Console.WriteLine($"Average or col {i} is : {sum / array.GetLength(0)}"); ;
     } 
 Console.ReadKey();
 }
 
-int n = GetDataFromUser ("Введите количество строк");
+int n = GetDataFromUser ("Введите количество cтрок");
 int m = GetDataFromUser ("Введите количество столбцов");
-int [,] array = get2DDoubleArray (n,m,0,100);
+int [,] array = get2DDoubleArray (n,m,0,10);
 print2DArray (array);
 getAverage (array);
 
